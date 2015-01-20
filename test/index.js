@@ -20,6 +20,7 @@ describe('MError', function () {
 		assert(merror instanceof MError);
 		assert.strictEqual(merror.cause(), error);
 		assert.equal(merror.cause().message, 'Error 1');
+		assert(merror.stack);
 	});
 
 	it('can embed an MError containing an Error', function () {
