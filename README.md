@@ -2,6 +2,8 @@
 
 MError: VError with error levels
 
+[![Build Status](https://travis-ci.org/Wizcorp/MError.png)](https://travis-ci.org/Wizcorp/MError)
+
 ## The purpose of this module
 
 [VError](https://www.npmjs.com/package/verror) is a really awesome NPM module.
