@@ -46,5 +46,13 @@ describe('MError', function () {
 		merror.setLevel('warning');
 		assert.equal(merror.getLevel(), 'warning');
 	});
+
+	it('throws for unknown levels', function () {
+		var merror = new MError('Problem whatever');
+
+		assert.throws(function () {
+			merror.setLevel('foobar');
+		});
+	});
 });
 
