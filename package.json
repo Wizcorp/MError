@@ -1,6 +1,6 @@
 {
   "name": "merror",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MError: VError with error levels",
   "main": "index.js",
   "scripts": {
