@@ -67,3 +67,20 @@ var error = new MError('Ouch');
 error.decLevel('error');
 ```
 
+## Chaining
+
+The constructor does not require the "new" keyword to function. This fact,
+combined with function chaining, allows for one-liner patterns like this:
+
+```js
+function statMyFile(cb) {
+	fs.stat(someFile, function (error, stats) {
+		if (error) {
+			return cb(MError(error, 'Stat failed').setLevel('fatal'));
+		}
+
+		return cb(null, stats);
+	});
+});
+```
+
