@@ -1,6 +1,6 @@
 var assert = require('assert');
 var MError = require('../index.js');
-
+var VError = require('verror');
 
 describe('MError', function () {
 	it('can be set up with levels', function () {
@@ -53,6 +53,13 @@ describe('MError', function () {
 		assert.throws(function () {
 			merror.setLevel('foobar');
 		});
+	});
+
+	it('is a VError and an Error instance', function () {
+		var merror = new MError('instance test');
+		assert(merror instanceof MError);
+		assert(merror instanceof VError);
+		assert(merror instanceof Error);
 	});
 });
 
