@@ -15,6 +15,12 @@ work with (for me anyway, use it or don't).
 The main API is documented by the VError module, so we will only go into detail
 on what is added.
 
+First require the class:
+
+```js
+var MError = require('merror');
+```
+
 **MError.setupLevels(levels, defaultLevel)**
 
 You call this once to set up error log levels (in order of severity) that MError
