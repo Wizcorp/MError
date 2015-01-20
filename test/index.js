@@ -7,6 +7,11 @@ describe('MError', function () {
 		MError.setupLevels(['warning', 'error', 'alert', 'critical', 'emergency'], 'error');
 	});
 
+	it('allows chaining', function () {
+		var level = MError('We have %d problems', 5).setLevel('critical').getLevel();
+		assert.equal(level, 'critical');
+	});
+
 	it('can embed an Error', function () {
 		var error = new Error('Error 1');
 		var merror = new MError(error, 'Something bad happened');
@@ -41,7 +46,4 @@ describe('MError', function () {
 		assert.equal(merror.getLevel(), 'warning');
 	});
 });
-
-
-
 

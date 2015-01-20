@@ -3,6 +3,12 @@ var inherits = require('util').inherits;
 var VError = require('verror');
 
 function MError() {
+	if (!(this instanceof MError)) {
+		var obj = Object.create(MError.prototype);
+		MError.apply(obj, arguments);
+		return obj;
+	}
+
 	VError.apply(this, arguments);
 	this._level = MError._defaultLevel;
 }
@@ -41,6 +47,7 @@ MError.prototype.getLevel = function () {
 
 MError.prototype.setLevel = function (level) {
 	this._level = MError.levelToNum(level);
+	return this;
 };
 
 
@@ -49,6 +56,7 @@ MError.prototype.incLevel = function (level) {
 	if (this._level === undefined || index > this._level) {
 		this._level = index;
 	}
+	return this;
 };
 
 
@@ -57,5 +65,6 @@ MError.prototype.decLevel = function (level) {
 	if (this._level === undefined || index < this._level) {
 		this._level = index;
 	}
+	return this;
 };
 
